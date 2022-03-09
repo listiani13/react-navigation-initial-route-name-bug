@@ -1,0 +1,18 @@
+diff --git a/node_modules/@react-navigation/native/lib/module/useLinking.js b/node_modules/@react-navigation/native/lib/module/useLinking.js
+index 11d1f4a..04b7456 100644
+--- a/node_modules/@react-navigation/native/lib/module/useLinking.js
++++ b/node_modules/@react-navigation/native/lib/module/useLinking.js
+@@ -74,7 +74,12 @@ const createMemoryHistory = () => {
+         state,
+         id
+       });
+-      index = items.length - 1; // We pass empty string for title because it's ignored in all browsers except safari
++		index = items.length - 1;
++	  if (path === items?.[index - 1].path) {
++			// do not need to push state because current link is the same as previous link
++            return;
++       }
++		// We pass empty string for title because it's ignored in all browsers except safari
+       // We don't store state object in history.state because:
+       // - browsers have limits on how big it can be, and we don't control the size
+       // - while not recommended, there could be non-serializable data in state

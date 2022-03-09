@@ -75,7 +75,23 @@ function RootNavigator() {
 				component={NotFoundScreen}
 				options={{ title: "Oops!" }}
 			/>
-			<Stack.Group screenOptions={{ presentation: "modal" }}>
+			<Stack.Group
+				screenOptions={{
+					presentation: "modal",
+					cardOverlayEnabled: true,
+					detachPreviousScreen: false,
+					cardStyle: {
+						margin: 32,
+						width: "100%",
+						maxWidth: 300,
+						minHeight: 800,
+						maxHeight: 800,
+						alignSelf: "center",
+						borderRadius: 12,
+						backgroundColor: "transparent",
+					},
+				}}
+			>
 				<Stack.Screen name="Modal" component={ModalScreen} />
 			</Stack.Group>
 		</Stack.Navigator>
