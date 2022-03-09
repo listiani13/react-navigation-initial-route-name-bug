@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { Button, StyleSheet, TouchableOpacity } from "react-native";
 
 import { Text, View } from "../components/Themed";
 import { RootStackScreenProps } from "../types";
@@ -9,6 +9,10 @@ export default function ScreenA({
 	return (
 		<View style={styles.container}>
 			<Text style={styles.title}>Screen A</Text>
+			<Button
+				title="Go To B"
+				onPress={() => navigation.navigate("Stack", { screen: "B" })}
+			/>
 		</View>
 	);
 }
